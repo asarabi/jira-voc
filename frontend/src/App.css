@@ -22,6 +22,12 @@
   color: #fff;
 }
 
+.chat-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .chat-header h1 {
   font-size: 20px;
   font-weight: 600;
@@ -31,6 +37,22 @@
 .chat-header p {
   font-size: 13px;
   opacity: 0.85;
+}
+
+.settings-button {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  opacity: 0.8;
+  padding: 4px;
+  line-height: 1;
+  transition: opacity 0.2s;
+}
+
+.settings-button:hover {
+  opacity: 1;
 }
 
 /* Messages Area */
@@ -340,4 +362,124 @@
 
 .ticket-link:hover {
   text-decoration: underline;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 520px;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid #e8eaed;
+}
+
+.modal-header h2 {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.modal-close {
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+  line-height: 1;
+  padding: 0 4px;
+}
+
+.modal-close:hover {
+  color: #333;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+/* Settings Form */
+.settings-description {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 16px;
+}
+
+.settings-group {
+  margin-bottom: 20px;
+}
+
+.settings-group h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a73e8;
+  margin-bottom: 12px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #e8eaed;
+}
+
+.settings-field {
+  margin-bottom: 12px;
+}
+
+.settings-field label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #5f6368;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.settings-field input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #dadce0;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.settings-field input:focus {
+  border-color: #1a73e8;
+  box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.15);
+}
+
+.settings-error {
+  color: #d93025;
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+.settings-success {
+  color: #188038;
+  font-size: 13px;
+  margin-top: 8px;
 }

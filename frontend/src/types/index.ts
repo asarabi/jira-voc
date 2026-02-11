@@ -38,3 +38,23 @@ export interface TemplateSummary {
   jira_issue_type: string;
   keywords: string[];
 }
+
+export interface AdminSettings {
+  ai_base_url: string;
+  ai_api_key: string;
+  ai_model_name: string;
+  jira_base_url: string;
+  jira_user_email: string;
+  jira_api_token: string;
+  jira_project_key: string;
+}
+
+export interface AdminSettingsUpdate {
+  ai_base_url?: string;
+  ai_api_key?: string;
+  ai_model_name?: string;
+  jira_base_url?: string;
+  jira_user_email?: string;
+  jira_api_token?: string;
+  jira_project_key?: string;
+}

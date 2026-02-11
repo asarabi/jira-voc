@@ -6,7 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.config import Settings
 from app.dependencies import init_services, get_jira_service
-from app.routers import chat, jira_tickets, jira_webhooks, rag, templates
+from app.routers import admin, chat, jira_tickets, jira_webhooks, rag, templates
 
 settings = Settings()
 
@@ -36,6 +36,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.include_router(admin.router)
 app.include_router(chat.router)
 app.include_router(templates.router)
 app.include_router(jira_tickets.router)

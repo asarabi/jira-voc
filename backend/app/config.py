@@ -13,6 +13,9 @@ class Settings(BaseSettings):
     jira_api_token: str = ""
     jira_project_key: str = "VOC"
 
+    # Admin
+    admin_password: str = ""
+
     # Application
     app_host: str = "0.0.0.0"
     app_port: int = 8000

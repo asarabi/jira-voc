@@ -1,8 +1,9 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useChat } from "../hooks/useChat";
 import ChatInput from "./ChatInput";
 import MessageBubble from "./MessageBubble";
 import LoadingIndicator from "./LoadingIndicator";
+import AdminSettings from "./AdminSettings";
 
 export default function ChatWindow() {
   const {
@@ -14,6 +15,7 @@ export default function ChatWindow() {
     setPendingTemplate,
   } = useChat();
 
+  const [showSettings, setShowSettings] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -28,9 +30,22 @@ export default function ChatWindow() {
   return (
     <div className="chat-window">
       <div className="chat-header">
-        <h1>VOC to Jira</h1>
+        <div className="chat-header-top">
+          <h1>VOC to Jira</h1>
+          <button
+            className="settings-button"
+            onClick={() => setShowSettings(true)}
+            title="Admin Settings"
+          >
+            &#9881;
+          </button>
+        </div>
         <p>고객의 소리를 입력하면 AI가 적절한 Jira 티켓을 생성합니다</p>
       </div>
+
+      {showSettings && (
+        <AdminSettings onClose={() => setShowSettings(false)} />
+      )}
 
       <div className="chat-messages">
         {messages.length === 0 && (
