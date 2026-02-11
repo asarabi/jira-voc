@@ -1,0 +1,43 @@
+id: service_request
+name: "서비스 요청"
+description: "기술 지원, 계정 관련, 설정 변경, 일반 문의 등 서비스 지원을 요청하는 경우"
+jira_issue_type: "Task"
+keywords:
+  - 문의
+  - 요청
+  - 지원
+  - 도움
+  - 설정
+  - 변경
+  - 계정
+  - 권한
+  - support
+  - help
+  - account
+  - access
+  - inquiry
+
+fields:
+  - key: summary
+    label: "요약"
+    type: string
+    required: true
+    ai_instruction: "서비스 요청 내용을 80자 이내로 간결하게 요약하세요."
+
+  - key: description
+    label: "상세 설명"
+    type: text
+    required: true
+    ai_instruction: >
+      다음 구조로 서비스 요청을 작성하세요:
+      1. 요청 내용: 고객이 원하는 것
+      2. 현재 상황: 현재 상태나 배경
+      3. 필요 조치: 처리해야 할 사항
+      원본 VOC 내용을 인용으로 포함하세요.
+
+  - key: priority
+    label: "우선순위"
+    type: select
+    required: true
+    options: ["Highest", "High", "Medium", "Low", "Lowest"]
+    ai_instruction: "요청의 긴급도를 기반으로 우선순위를 결정하세요."

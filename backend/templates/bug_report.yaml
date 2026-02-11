@@ -1,0 +1,51 @@
+id: bug_report
+name: "버그 리포트"
+description: "소프트웨어 결함, 오류, 크래시, 예기치 않은 동작을 보고하는 경우"
+jira_issue_type: "Bug"
+keywords:
+  - 오류
+  - 에러
+  - 버그
+  - 크래시
+  - 안됨
+  - 안되요
+  - 작동하지 않음
+  - 실패
+  - 장애
+  - error
+  - bug
+  - crash
+  - broken
+  - not working
+
+fields:
+  - key: summary
+    label: "요약"
+    type: string
+    required: true
+    ai_instruction: "VOC 내용을 기반으로 80자 이내의 간결한 버그 요약을 작성하세요."
+
+  - key: description
+    label: "상세 설명"
+    type: text
+    required: true
+    ai_instruction: >
+      다음 구조로 버그 설명을 작성하세요:
+      1. 현상: 고객이 보고한 내용
+      2. 예상 동작: 정상적으로 기대되는 동작
+      3. 재현 절차: VOC에서 언급된 경우
+      마지막에 원본 VOC 내용을 인용으로 포함하세요.
+
+  - key: priority
+    label: "우선순위"
+    type: select
+    required: true
+    options: ["Highest", "High", "Medium", "Low", "Lowest"]
+    ai_instruction: "VOC에서 설명된 심각도와 비즈니스 영향을 기반으로 우선순위를 결정하세요."
+
+  - key: components
+    label: "컴포넌트"
+    type: multiselect
+    required: false
+    options: ["Frontend", "Backend", "API", "Database", "Infrastructure"]
+    ai_instruction: "VOC에서 언급된 영향받는 컴포넌트를 식별하세요."
