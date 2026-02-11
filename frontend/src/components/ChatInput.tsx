@@ -32,23 +32,34 @@ export default function ChatInput({ onSend, disabled }: ChatInputProps) {
 
   return (
     <div className="chat-input-container">
-      <textarea
-        ref={textareaRef}
-        className="chat-input"
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        onKeyDown={handleKeyDown}
-        placeholder="VOC 내용을 입력하세요... (Enter로 전송, Shift+Enter로 줄바꿈)"
-        disabled={disabled}
-        rows={1}
-      />
-      <button
-        className="send-button"
-        onClick={handleSubmit}
-        disabled={disabled || !text.trim()}
-      >
-        전송
-      </button>
+      <div className="input-wrapper">
+        <textarea
+          ref={textareaRef}
+          className="chat-input"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          onKeyDown={handleKeyDown}
+          placeholder="VOC 내용을 입력하세요..."
+          disabled={disabled}
+          rows={1}
+        />
+        <button
+          className="send-button"
+          onClick={handleSubmit}
+          disabled={disabled || !text.trim()}
+          aria-label="전송"
+        >
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path
+              d="M8 14V3M8 3L3 8M8 3L13 8"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
+      </div>
     </div>
   );
 }

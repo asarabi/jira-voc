@@ -30,7 +30,7 @@ export default function ChatWindow() {
   return (
     <div className="chat-window">
       <div className="chat-header">
-        <div className="chat-header-top">
+        <div className="chat-header-inner">
           <h1>VOC to Jira</h1>
           <button
             className="settings-button"
@@ -40,7 +40,6 @@ export default function ChatWindow() {
             &#9881;
           </button>
         </div>
-        <p>고객의 소리를 입력하면 AI가 적절한 Jira 티켓을 생성합니다</p>
       </div>
 
       {showSettings && (
@@ -50,7 +49,8 @@ export default function ChatWindow() {
       <div className="chat-messages">
         {messages.length === 0 && (
           <div className="welcome-message">
-            <p>안녕하세요! VOC 내용을 입력해 주세요.</p>
+            <p className="welcome-title">무엇을 도와드릴까요?</p>
+            <p>고객의 소리를 입력하면 AI가 적절한 Jira 티켓을 생성합니다</p>
             <p className="welcome-hint">
               예: "로그인 페이지에서 500 에러가 발생합니다"
             </p>
